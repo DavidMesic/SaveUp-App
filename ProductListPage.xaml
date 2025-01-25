@@ -11,8 +11,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Text="Gesamtsumme: {Binding TotalSum}"
-                   FontSize="18" />
+            <Label Text="{Binding TotalSum, StringFormat='Gesamtersparnis: {0:C}'}"
+                    FontSize="18" />
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
