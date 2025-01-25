@@ -18,7 +18,7 @@ namespace SaveUpApp.ViewModels
 
         private void SaveProduct()
         {
-            if (!string.IsNullOrWhiteSpace(Description) && double.TryParse(Price, out double price))
+            if (!string.IsNullOrWhiteSpace(Description) && float.TryParse(Price, out float price))
             {
                 var product = new Product { Description = Description, Price = price };
                 ProductRepository.AddProduct(product);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="SaveUpApp.DashboardPage"
+             Title="Dashboard">
+    <VerticalStackLayout>
+        <Label 
+            Text="Ersparnisse der letzten 7 Tage"
+            FontSize="20"
+            HorizontalOptions="Center" 
+            VerticalOptions="Start" />
+        <microcharts:ChartView x:Name="SavingsChart"
+                               HeightRequest="300"
+                               WidthRequest="300" />
+    </VerticalStackLayout>
+</ContentPage>

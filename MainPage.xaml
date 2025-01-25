@@ -7,12 +7,18 @@
             <Label Text="Willkommen bei SaveUp"
                    FontSize="24"
                    HorizontalOptions="Center" />
+            <Button Text="Dashboard"
+                    Command="{Binding NavigateToDashboardCommand}"
+                    CommandParameter="Navigating to Dashboard Page..." />
             <Button Text="Produkt erfassen"
                     Command="{Binding NavigateToAddProductCommand}"
                     CommandParameter="Navigating to Add Product Page..." />
             <Button Text="Liste anzeigen"
                     Command="{Binding NavigateToProductListCommand}"
                     CommandParameter="Navigating to Add List Page..." />
+            <Button Text="About Us"
+                    Command="{Binding NavigateToAboutUsCommand}"
+                    CommandParameter="Navigating to About Us Page..." />
 
         </VerticalStackLayout>
     </ContentPage.Content>

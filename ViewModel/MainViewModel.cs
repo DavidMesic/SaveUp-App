@@ -11,12 +11,19 @@ namespace SaveUpApp.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        public ICommand NavigateToDashboardCommand { get; }
         public ICommand NavigateToAddProductCommand { get; }
         public ICommand NavigateToProductListCommand { get; }
+        public ICommand NavigateToAboutUsCommand { get; }
 
 
         public MainViewModel()
         {
+            NavigateToDashboardCommand = new Command(async () =>
+            {
+                await Shell.Current.GoToAsync("///DashboardPage");
+            });
+
             NavigateToAddProductCommand = new Command(async () =>
             {
                 await Shell.Current.GoToAsync("///AddProductPage");
@@ -27,6 +34,10 @@ namespace SaveUpApp.ViewModels
                 await Shell.Current.GoToAsync("///ProductListPage");
             });
 
+            NavigateToAboutUsCommand = new Command(async () =>
+            {
+                await Shell.Current.GoToAsync("///AboutUsPage");
+            });
         }
     }
 }

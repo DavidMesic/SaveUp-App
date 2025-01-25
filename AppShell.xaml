@@ -3,12 +3,19 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:SaveUpApp"
        x:Class="SaveUpApp.AppShell">
-    <ShellContent Route="MainPage"
+    <ShellContent Title="Home"
+                  Route="MainPage"
                   ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Title="Dashboard"
+                  Route="DashboardPage"
+                  ContentTemplate="{DataTemplate local:DashboardPage}" />
     <ShellContent Title="Add Product"
                   Route="AddProductPage"
                   ContentTemplate="{DataTemplate local:AddProductPage}" />
     <ShellContent Title="Product List"
                   Route="ProductListPage"
                   ContentTemplate="{DataTemplate local:ProductListPage}" />
+    <ShellContent Title="About Us"
+                  Route="AboutUsPage"
+                  ContentTemplate="{DataTemplate local:AboutUsPage}" />
 </Shell>
