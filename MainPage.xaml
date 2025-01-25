@@ -1,0 +1,19 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaveUpApp"
+             x:Class="SaveUpApp.MainPage">
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Label Text="Willkommen bei SaveUp"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+            <Button Text="Produkt erfassen"
+                    Command="{Binding NavigateToAddProductCommand}"
+                    CommandParameter="Navigating to Add Product Page..." />
+            <Button Text="Liste anzeigen"
+                    Command="{Binding NavigateToProductListCommand}"
+                    CommandParameter="Navigating to Add List Page..." />
+
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

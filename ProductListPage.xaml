@@ -1,0 +1,18 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveUpApp.ProductListPage">
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <ListView ItemsSource="{Binding Products}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Description}"
+                                  Detail="{Binding Price}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Gesamtsumme: {Binding TotalSum}"
+                   FontSize="18" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
