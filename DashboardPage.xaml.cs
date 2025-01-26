@@ -1,9 +1,5 @@
 using Microcharts;
 using SkiaSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using SaveUpApp.ViewModels;
 using System.Globalization;
 
 namespace SaveUpApp

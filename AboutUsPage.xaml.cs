@@ -1,5 +1,4 @@
 using SaveUpApp.ViewModel;
-using SaveUpApp.ViewModels;
 
 namespace SaveUpApp;
 
