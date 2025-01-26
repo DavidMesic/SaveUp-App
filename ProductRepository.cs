@@ -34,6 +34,13 @@ namespace SaveUpApp
             OnProductsChanged(); // Event auslösen
         }
 
+        public static void ClearAllProducts()
+        {
+            products.Clear();
+            SaveProducts();
+            OnProductsChanged(); // Event auslösen
+        }
+
         private static void SaveProducts()
         {
             // Produkte in JSON speichern

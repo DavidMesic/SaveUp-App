@@ -4,7 +4,7 @@
              x:Class="SaveUpApp.MainPage"
              Title="Home"
              BackgroundColor="#f5f5f5">
-    
+
     <ContentPage.Content>
         <VerticalStackLayout 
             Padding="30" 
@@ -72,6 +72,18 @@
                 WidthRequest="250"
                 Command="{Binding NavigateToAboutUsCommand}"
                 CommandParameter="Navigating to About Us Page..." />
+
+            <Button 
+                Text="Liste zurücksetzen"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#FF3B30"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Command="{Binding ClearAllCommand}" />
+
 
         </VerticalStackLayout>
     </ContentPage.Content>
