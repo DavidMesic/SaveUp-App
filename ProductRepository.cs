@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using SaveUpApp.Models;
-using System.Collections.Generic;
 
 namespace SaveUpApp
 {
@@ -19,12 +15,14 @@ namespace SaveUpApp
 
         public static List<Product> GetProducts()
         {
+            // Lade Produkte aus der Datei (bei Bedarf)
             LoadProducts();
             return products;
         }
 
         public static void AddProduct(Product product)
         {
+            // Produkt hinzufügen und speichern
             products.Add(product);
             SaveProducts();
             OnProductsChanged(); // Event auslösen
@@ -32,26 +30,22 @@ namespace SaveUpApp
 
         public static void RemoveProduct(Product product)
         {
+            // Produkt entfernen und speichern
             products.Remove(product);
-            SaveProducts();
-            OnProductsChanged(); // Event auslösen
-        }
-
-        public static void ClearAllProducts()
-        {
-            products.Clear();
             SaveProducts();
             OnProductsChanged(); // Event auslösen
         }
 
         private static void SaveProducts()
         {
+            // Produkte in JSON speichern
             var json = JsonSerializer.Serialize(products);
             File.WriteAllText(FilePath, json);
         }
 
         private static void LoadProducts()
         {
+            // Produkte aus JSON laden
             if (File.Exists(FilePath))
             {
                 var json = File.ReadAllText(FilePath) ?? string.Empty;
@@ -63,9 +57,9 @@ namespace SaveUpApp
             }
         }
 
-        // Methode zum Auslösen des Events
         private static void OnProductsChanged()
         {
+            // Event auslösen, um Änderungen zu signalisieren
             ProductsChanged?.Invoke(null, EventArgs.Empty);
         }
     }
