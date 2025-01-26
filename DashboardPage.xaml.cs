@@ -13,7 +13,31 @@ public partial class DashboardPage : ContentPage
     public DashboardPage()
     {
         InitializeComponent();
+
+        // Abonniere Änderungen im Produktrepository
+        ProductRepository.ProductsChanged += OnProductsChanged;
+    }
+
+    private void OnProductsChanged(object sender, EventArgs e)
+    {
+        // Aktualisiere die Chart-Daten, wenn Produkte geändert werden
         LoadChartData();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Aktualisiere die Chart-Daten, wenn die Seite angezeigt wird
+        LoadChartData();
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        // Abonniere Änderungen ab, wenn die Seite verschwindet
+        ProductRepository.ProductsChanged -= OnProductsChanged;
     }
 
     private void LoadChartData()

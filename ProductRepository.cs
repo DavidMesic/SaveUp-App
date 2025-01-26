@@ -14,6 +14,9 @@ namespace SaveUpApp
         private static readonly string FilePath = Path.Combine(FileSystem.AppDataDirectory, "products.json");
         private static List<Product> products = new();
 
+        // Event zur Benachrichtigung bei Änderungen
+        public static event EventHandler ProductsChanged;
+
         public static List<Product> GetProducts()
         {
             LoadProducts();
@@ -24,18 +27,21 @@ namespace SaveUpApp
         {
             products.Add(product);
             SaveProducts();
+            OnProductsChanged(); // Event auslösen
         }
 
         public static void RemoveProduct(Product product)
         {
             products.Remove(product);
             SaveProducts();
+            OnProductsChanged(); // Event auslösen
         }
 
         public static void ClearAllProducts()
         {
             products.Clear();
             SaveProducts();
+            OnProductsChanged(); // Event auslösen
         }
 
         private static void SaveProducts()
@@ -55,6 +61,12 @@ namespace SaveUpApp
             {
                 products = new List<Product>();
             }
+        }
+
+        // Methode zum Auslösen des Events
+        private static void OnProductsChanged()
+        {
+            ProductsChanged?.Invoke(null, EventArgs.Empty);
         }
     }
 }
