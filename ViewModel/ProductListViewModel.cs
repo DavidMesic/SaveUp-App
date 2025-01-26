@@ -14,15 +14,19 @@ namespace SaveUpApp.ViewModels
             Products = new ObservableCollection<Product>();
         }
 
-        // Eigene LoadProducts-Methode, weil die aktualisierung im CodeBehind sein muss
+        // Produkte laden und nach Datum sortieren (neueste zuerst)
         public void LoadProducts()
         {
             Products.Clear();
-            var products = ProductRepository.GetProducts();
+            var products = ProductRepository.GetProducts()
+                .OrderByDescending(p => p.DateSaved) // Sortiere nach Datum (neueste zuerst)
+                .ToList();
+
             foreach (var product in products)
             {
                 Products.Add(product);
             }
+
             OnPropertyChanged(nameof(TotalSum));
         }
     }
