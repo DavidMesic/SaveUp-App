@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SaveUpApp.ViewModels;
+using System.Globalization;
 
 public partial class DashboardPage : ContentPage
 {
@@ -62,7 +63,7 @@ public partial class DashboardPage : ContentPage
         var chartEntries = last7Days.Select(entry => new ChartEntry(entry.Amount)
         {
             Label = entry.Date.ToString("ddd"), // Wochentag (z. B. "Mo", "Di")
-            ValueLabel = $"{entry.Amount:F2} CHF", // Betrag in CHF anzeigen
+            ValueLabel = $"{entry.Amount.ToString("C", new CultureInfo("de-CH"))}", // Währungsformat für CHF
             Color = SKColor.Parse("#3498db")
         }).ToList();
 
