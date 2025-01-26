@@ -22,16 +22,17 @@ public partial class DashboardPage : ContentPage
 
         if (products == null || !products.Any())
         {
-            // Zeige eine Fehlermeldung an, wenn keine Daten vorhanden sind
             DisplayAlert("Fehler", "Es sind keine Produkte verfügbar.", "OK");
             return;
         }
 
-        // Debugging: Zeige die Anzahl der geladenen Produkte an
+        // Debugging: Anzahl der geladenen Produkte anzeigen
         Console.WriteLine($"Anzahl der geladenen Produkte: {products.Count}");
 
-        // Validierung: Überprüfe, ob die notwendigen Felder vorhanden sind
-        var validProducts = products.Where(p => p.DateSaved != default && p.Price > 0).ToList();
+        // Überprüfe, ob die Produkte gültige Daten haben
+        var validProducts = products
+            .Where(p => p.DateSaved != default && p.Price > 0)
+            .ToList();
 
         if (!validProducts.Any())
         {
@@ -39,16 +40,10 @@ public partial class DashboardPage : ContentPage
             return;
         }
 
-        // Debugging: Zeige die gültigen Produkte an
-        foreach (var product in validProducts)
-        {
-            Console.WriteLine($"Produkt: {product.Description}, Preis: {product.Price}, Datum: {product.DateSaved}");
-        }
-
-        // Filtere die letzten 7 Tage
+        // Filtere Produkte der letzten 7 Tage und gruppiere sie nach Datum
         var last7Days = validProducts
             .Where(p => p.DateSaved >= DateTime.Now.AddDays(-7))
-            .GroupBy(p => p.DateSaved.Date) // Gruppiere nach Datum
+            .GroupBy(p => p.DateSaved.Date)
             .Select(g => new SavingsEntry
             {
                 Date = g.Key,
@@ -63,36 +58,32 @@ public partial class DashboardPage : ContentPage
             return;
         }
 
-        // Debugging: Zeige die gefilterten Daten an
-        foreach (var entry in last7Days)
-        {
-            Console.WriteLine($"Datum: {entry.Date}, Betrag: {entry.Amount}");
-        }
-
-        // Konvertiere die Daten für Microcharts
+        // Konvertiere die Daten für die Anzeige im Balkendiagramm
         var chartEntries = last7Days.Select(entry => new ChartEntry(entry.Amount)
         {
-            Label = entry.Date.ToString("ddd"),
-            ValueLabel = $"{entry.Amount}€",
+            Label = entry.Date.ToString("ddd"), // Wochentag (z. B. "Mo", "Di")
+            ValueLabel = $"{entry.Amount:F2}€",
             Color = SKColor.Parse("#3498db")
         }).ToList();
 
-        // Debugging: Zeige die Chart-Einträge an
-        foreach (var chartEntry in chartEntries)
-        {
-            Console.WriteLine($"Label: {chartEntry.Label}, Wert: {chartEntry.ValueLabel}");
-        }
+        // Debugging: Zeige die Chart-Daten an
+        Console.WriteLine("Chart-Daten:");
+        chartEntries.ForEach(entry =>
+            Console.WriteLine($"Label: {entry.Label}, Wert: {entry.ValueLabel}")
+        );
 
-        // Erstelle ein Balkendiagramm
+        // Erstelle das Balkendiagramm
         var chart = new BarChart
         {
             Entries = chartEntries,
+            BackgroundColor = SKColors.Transparent,
             LabelTextSize = 30,
             ValueLabelOrientation = Orientation.Horizontal,
-            LabelOrientation = Orientation.Horizontal
+            LabelOrientation = Orientation.Horizontal,
+            BarAreaAlpha = 150 // Transparenz der Balken
         };
 
-        // Weise das Diagramm der ChartView zu
+        // Weisen das Diagramm der ChartView zu
         SavingsChart.Chart = chart;
     }
 

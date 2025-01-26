@@ -1,17 +1,72 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SaveUpApp.AddProductPage">
+             x:Class="SaveUpApp.AddProductPage"
+             Title="Add Product"
+             BackgroundColor="#f5f5f5">
+
     <ContentPage.Content>
-        <VerticalStackLayout>
-            <Entry Placeholder="Kurzbeschreibung"
-                   Text="{Binding Description}" />
-            <Entry Placeholder="Preis"
-                   Keyboard="Numeric"
-                   Text="{Binding Price}" />
-            <Button Text="Speichern"
-                    Command="{Binding SaveProductCommand}" />
-            <Button Text="Zurück"
-                    Command="{Binding NavigateBackCommand}" />
+        <VerticalStackLayout 
+            Padding="30" 
+            Spacing="25" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+
+            <Label 
+                Text="Produkt hinzufügen"
+                FontSize="28"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                TextColor="#333333" />
+
+            <BoxView 
+                HeightRequest="2" 
+                WidthRequest="200" 
+                BackgroundColor="#007BFF"
+                HorizontalOptions="Center" />
+
+            <Entry 
+                Placeholder="Kurzbeschreibung"
+                Text="{Binding Description}"
+                FontSize="18"
+                BackgroundColor="White"
+                TextColor="#333333"
+                PlaceholderColor="#999999"
+                HorizontalOptions="Fill"
+                WidthRequest="300" />
+
+            <Entry 
+                Placeholder="Preis"
+                Keyboard="Numeric"
+                Text="{Binding Price}"
+                FontSize="18"
+                BackgroundColor="White"
+                TextColor="#333333"
+                PlaceholderColor="#999999"
+                HorizontalOptions="Fill"
+                WidthRequest="300" />
+
+            <Button 
+                Text="Speichern"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#007BFF"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                Command="{Binding SaveProductCommand}" />
+
+            <Button 
+                Text="Zurück"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#555555"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                Command="{Binding NavigateBackCommand}" />
+
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

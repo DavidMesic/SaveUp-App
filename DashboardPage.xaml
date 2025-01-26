@@ -3,15 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="SaveUpApp.DashboardPage"
-             Title="Dashboard">
-    <VerticalStackLayout>
-        <Label 
-            Text="Ersparnisse der letzten 7 Tage"
-            FontSize="20"
-            HorizontalOptions="Center" 
-            VerticalOptions="Start" />
-        <microcharts:ChartView x:Name="SavingsChart"
-                               HeightRequest="300"
-                               WidthRequest="300" />
-    </VerticalStackLayout>
+             Title="Dashboard"
+             BackgroundColor="#f5f5f5">
+
+    <ContentPage.Content>
+        <VerticalStackLayout 
+            Padding="30" 
+            Spacing="25" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+
+            <Label 
+                Text="Ersparnisse der letzten 7 Tage"
+                FontSize="28"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                TextColor="#333333" />
+
+            <BoxView 
+                HeightRequest="2" 
+                WidthRequest="200" 
+                BackgroundColor="#007BFF"
+                HorizontalOptions="Center" />
+
+            <!-- Platzhalter für das Bar Chart -->
+            <microcharts:ChartView 
+                x:Name="SavingsChart"
+                HeightRequest="300"
+                WidthRequest="300"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,20,0,20" />
+
+            <Label 
+                Text="Die Grafik zeigt die Ersparnisse der letzten 7 Tage an."
+                FontSize="16"
+                HorizontalOptions="Center"
+                TextColor="#666666" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
 </ContentPage>
