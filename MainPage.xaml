@@ -1,24 +1,77 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SaveUpApp"
-             x:Class="SaveUpApp.MainPage">
+             x:Class="SaveUpApp.MainPage"
+             Title="Home"
+             BackgroundColor="#f5f5f5">
+    
     <ContentPage.Content>
-        <VerticalStackLayout>
-            <Label Text="Willkommen bei SaveUp"
-                   FontSize="24"
-                   HorizontalOptions="Center" />
-            <Button Text="Dashboard"
-                    Command="{Binding NavigateToDashboardCommand}"
-                    CommandParameter="Navigating to Dashboard Page..." />
-            <Button Text="Produkt erfassen"
-                    Command="{Binding NavigateToAddProductCommand}"
-                    CommandParameter="Navigating to Add Product Page..." />
-            <Button Text="Liste anzeigen"
-                    Command="{Binding NavigateToProductListCommand}"
-                    CommandParameter="Navigating to Add List Page..." />
-            <Button Text="About Us"
-                    Command="{Binding NavigateToAboutUsCommand}"
-                    CommandParameter="Navigating to About Us Page..." />
+        <VerticalStackLayout 
+            Padding="30" 
+            Spacing="25" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+
+            <Label 
+                Text="Willkommen bei SaveUp"
+                FontSize="28"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                TextColor="#333333" />
+
+            <BoxView 
+                HeightRequest="2" 
+                WidthRequest="200" 
+                BackgroundColor="#007BFF"
+                HorizontalOptions="Center" />
+
+            <Button 
+                Text="Dashboard"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#007BFF"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Command="{Binding NavigateToDashboardCommand}"
+                CommandParameter="Navigating to Dashboard Page..." />
+
+            <Button 
+                Text="Produkt erfassen"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#007BFF"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Command="{Binding NavigateToAddProductCommand}"
+                CommandParameter="Navigating to Add Product Page..." />
+
+            <Button 
+                Text="Liste anzeigen"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#007BFF"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Command="{Binding NavigateToProductListCommand}"
+                CommandParameter="Navigating to Add List Page..." />
+
+            <Button 
+                Text="About Us"
+                FontSize="18"
+                TextColor="White"
+                BackgroundColor="#007BFF"
+                CornerRadius="10"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Command="{Binding NavigateToAboutUsCommand}"
+                CommandParameter="Navigating to About Us Page..." />
 
         </VerticalStackLayout>
     </ContentPage.Content>
