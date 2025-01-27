@@ -50,7 +50,7 @@
                 CommandParameter="Navigating to Add Product Page..." />
 
             <Button 
-                Text="Liste anzeigen"
+                Text="Produktliste"
                 FontSize="18"
                 TextColor="White"
                 BackgroundColor="#007BFF"
@@ -62,7 +62,7 @@
                 CommandParameter="Navigating to Add List Page..." />
 
             <Button 
-                Text="About Us"
+                Text="Über Uns"
                 FontSize="18"
                 TextColor="White"
                 BackgroundColor="#007BFF"

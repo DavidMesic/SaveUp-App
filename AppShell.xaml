@@ -9,13 +9,13 @@
     <ShellContent Title="Dashboard"
                   Route="DashboardPage"
                   ContentTemplate="{DataTemplate local:DashboardPage}" />
-    <ShellContent Title="Add Product"
+    <ShellContent Title="Produkt erfassen"
                   Route="AddProductPage"
                   ContentTemplate="{DataTemplate local:AddProductPage}" />
-    <ShellContent Title="Product List"
+    <ShellContent Title="Produktliste"
                   Route="ProductListPage"
                   ContentTemplate="{DataTemplate local:ProductListPage}" />
-    <ShellContent Title="About Us"
+    <ShellContent Title="Über Uns"
                   Route="AboutUsPage"
                   ContentTemplate="{DataTemplate local:AboutUsPage}" />
 </Shell>
